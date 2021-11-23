@@ -1,14 +1,17 @@
 import os
 
-MAX_X = 800
-MAX_Y = 600
-FRAME_RATE = 30
+MAX_X = 1600
+MAX_Y = 1200
+FRAME_RATE = 90
 
 DEFAULT_SQUARE_SIZE = 20
 DEFAULT_FONT_SIZE = 20
 DEFAULT_TEXT_OFFSET = 4
 
-IMAGE_BRICK = os.path.join(os.getcwd(), "./batter/assets/brick-3.png")
+HERO_ONE = os.path.join(os.getcwd(), "./finale/assets/brick-3.png")
+HERO_TWO = os.path.join(os.getcwd(), "./finale/assets/brick-4.png")
+HERO_THREE = os.path.join(os.getcwd(), "./finale/assets/brick-2.png")
+
 IMAGE_PADDLE = os.path.join(os.getcwd(), "./batter/assets/bat.png")
 IMAGE_BALL = os.path.join(os.getcwd(), "./batter/assets/ball.png")
 
@@ -19,8 +22,8 @@ SOUND_OVER = os.path.join(os.getcwd(), "./batter/assets/over.wav")
 BALL_X = MAX_X / 2
 BALL_Y = MAX_Y - 125
 
-BALL_DX = 8
-BALL_DY = BALL_DX * -1
+HERO_DX = 8
+HERO_DY = HERO_DX * -1
 
 PADDLE_X = MAX_X / 2
 PADDLE_Y = MAX_Y - 25
@@ -30,11 +33,11 @@ BRICK_HEIGHT = 24
 
 BRICK_SPACE = 5
 
-PADDLE_SPEED = 15
+HERO_SPEED = 5
 
 PADDLE_WIDTH = 96
 PADDLE_HEIGHT = 24
 
-BALL_WIDTH = 24
-BALL_HEIGHT = 24
+HERO_WIDTH = 24
+HERO_HEIGHT = 24
 

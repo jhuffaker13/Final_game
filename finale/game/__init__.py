@@ -1,3 +1,3 @@
 """
-The game package contains specific classes for playing RFK.
+The game package contains specific classes for playing Finale.
 """

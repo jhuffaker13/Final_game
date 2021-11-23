@@ -13,12 +13,13 @@ from game.audio_service import AudioService
 
 # TODO: Add imports similar to the following when you create these classes
 from game.hero import Hero
+from game.change_color import ChangeColor
 # from game.ball import Ball
 # from game.paddle import Paddle
-# from game.control_actors_action import ControlActorsAction
+from game.control_actors_action import ControlActorsAction
 # from game.handle_collisions_action import HandleCollisionsAction
 # from game.handle_off_screen_action import HandleOffScreenAction
-# from game.move_actors_action import MoveActorsAction
+from game.move_actors_action import MoveActorsAction
 
 def main():
 
@@ -26,6 +27,14 @@ def main():
     cast = {}
 
     cast["hero"] = []
+    herolist = []
+    hero = Hero()
+    hero.set_image(constants.HERO_THREE)
+    position = Point(600, 300)
+    hero.set_position(position)
+    hero.set_velocity(Point(constants.HERO_DX, constants.HERO_DY))
+    herolist.append(hero)
+    cast["hero"] = herolist
     # TODO: Create bricks here and add them to the list
 
     cast["balls"] = []
@@ -43,13 +52,18 @@ def main():
     physics_service = PhysicsService()
     audio_service = AudioService()
 
+    hero_number = 2
+
     draw_actors_action = DrawActorsAction(output_service)
+    move_actors_action = MoveActorsAction()
+    control_actors_action = ControlActorsAction(input_service)
+    change_color = ChangeColor(input_service, hero_number)
 
     # TODO: Create additional actions here and add them to the script
 
-    script["input"] = []
+    script["input"] = [control_actors_action, change_color]
     script["update"] = []
-    script["output"] = [draw_actors_action]
+    script["output"] = [draw_actors_action, move_actors_action]
 
 
 

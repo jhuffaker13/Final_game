@@ -1,3 +1,4 @@
+import raylibpy
 from game import constants
 from game.point import Point
 
@@ -29,6 +30,13 @@ class Actor:
         self._width = 0
         self._height = 0
         self._image = ""
+        """self._color = raylibpy.RED
+
+    def set_color(self, color):
+        self._color = color
+
+    def get_color(self):
+        return self._color"""
 
     def get_width(self):
         return self._width

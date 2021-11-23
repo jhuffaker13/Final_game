@@ -36,11 +36,11 @@ class OutputService:
         raylibpy.begin_drawing()
         raylibpy.clear_background(raylibpy.BLACK)
 
-    def draw_box(self, x, y, width, height):
+    def draw_box(self, x, y, width, height, color):
         """
         Draws at rectangular box with the provided specifications.
         """
-        raylibpy.draw_rectangle(x, y, width, height, raylibpy.BLUE)
+        raylibpy.draw_rectangle(x, y, width, height, color)
 
     def draw_text(self, x, y, text, is_dark_text):
         """
@@ -77,7 +77,6 @@ class OutputService:
         y = position.get_y()
         width = actor.get_width()
         height = actor.get_height()
-
         if actor.has_image():
             image = actor.get_image()
             self.draw_image(x, y, image)
@@ -86,7 +85,7 @@ class OutputService:
             text = actor.get_text()
             self.draw_text(x, y, text, True)
         elif width > 0 and height > 0:
-            self.draw_box(x, y, width, height)
+            self.draw_box(x, y, width, height, raylibpy.RED)
         
     def draw_actors(self, actors):
         """Renders the given list of actors on the screen.
