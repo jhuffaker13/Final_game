@@ -11,26 +11,23 @@ class Hero(Actor):
         self.change_color = ChangeColor
         self.set_width(constants.HERO_WIDTH)
         self.set_height(constants.HERO_HEIGHT)
-        #if self.change_color.execute == 1:
-            #self.set_image(constants.HERO_THREE)
-        #else:  
         self.set_image(constants.HERO_TWO)
-        self.set_weapon(1)
+        self.weapon = 1
         self.input_service = InputService
         
 
-    def change_color(self):
-        self.set_image = self.change_color.execute()
-
-    def fire_weapon(self):
-        if self.input_service.is_space_pressed():
-            print("Wro")
-
+    def change_hero_color(self):
+        self.change_color.execute()
+        print(self.weapon)
 
     def get_weapon(self):
         return self.weapon
 
     def set_weapon(self, weapon):
         self.weapon = weapon
+
+    
+
+    
 
     

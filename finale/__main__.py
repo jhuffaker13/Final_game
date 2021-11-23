@@ -19,7 +19,7 @@ from game.change_color import ChangeColor
 # from game.paddle import Paddle
 from game.control_actors_action import ControlActorsAction
 # from game.handle_collisions_action import HandleCollisionsAction
-# from game.handle_off_screen_action import HandleOffScreenAction
+from game.handleoffscreenaction import HandleOffScreenAction
 from game.move_actors_action import MoveActorsAction
 
 def main():
@@ -62,11 +62,12 @@ def main():
     control_actors_action = ControlActorsAction(input_service)
     change_color = ChangeColor(input_service, hero_number)
     weapon = Weapon(input_service, hero_number)
+    handleoffscreenaction = HandleOffScreenAction(cast)
 
     # TODO: Create additional actions here and add them to the script
 
     script["input"] = [control_actors_action, change_color]
-    script["update"] = []
+    script["update"] = [handleoffscreenaction]
     script["output"] = [draw_actors_action, move_actors_action, weapon]
 
 

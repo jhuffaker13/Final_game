@@ -13,7 +13,7 @@ HERO_TWO = os.path.join(os.getcwd(), "./finale/assets/brick-4.png")
 HERO_THREE = os.path.join(os.getcwd(), "./finale/assets/brick-2.png")
 
 IMAGE_PADDLE = os.path.join(os.getcwd(), "./batter/assets/bat.png")
-IMAGE_BALL = os.path.join(os.getcwd(), "./batter/assets/ball.png")
+IMAGE_BALL = os.path.join(os.getcwd(), "./finale/assets/ball.png")
 
 SOUND_START = os.path.join(os.getcwd(), "./batter/assets/start.wav")
 SOUND_BOUNCE = os.path.join(os.getcwd(), "./batter/assets/boing.wav")
