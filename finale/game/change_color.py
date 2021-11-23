@@ -25,16 +25,23 @@ class ChangeColor():
             if self.hero_number == 1:
             #self._input_service.is_space_pressed() = False
                 cast["hero"][0].set_image(constants.HERO_ONE)
+                cast["hero"][0].set_weapon(1)
+
                 self.hero_number = 2
 
                 #return hero_image
             elif self.hero_number == 2:
                 cast["hero"][0].set_image(constants.HERO_TWO)
+                cast["hero"][0].set_weapon(2)
+
                 self.hero_number = 3
 
                 #return hero_image
             elif self.hero_number == 3:
                 cast["hero"][0].set_image(constants.HERO_THREE)
+                cast["hero"][0].set_weapon(3)
+                #print(cast["hero"][0].get_weapon())
+
                 self.hero_number = 1
 
                 #return hero_image

@@ -10,6 +10,7 @@ from game.input_service import InputService
 from game.output_service import OutputService
 from game.physics_service import PhysicsService
 from game.audio_service import AudioService
+from game.weapon import Weapon
 
 # TODO: Add imports similar to the following when you create these classes
 from game.hero import Hero
@@ -29,14 +30,15 @@ def main():
     cast["hero"] = []
     herolist = []
     hero = Hero()
-    hero.set_image(constants.HERO_THREE)
+    hero.set_image(constants.HERO_ONE)
+    hero.set_weapon(1)
     position = Point(600, 300)
     hero.set_position(position)
     hero.set_velocity(Point(constants.HERO_DX, constants.HERO_DY))
     herolist.append(hero)
     cast["hero"] = herolist
     # TODO: Create bricks here and add them to the list
-
+    cast["laser"] = []
     cast["balls"] = []
     # TODO: Create a ball here and add it to the list
 
@@ -53,17 +55,19 @@ def main():
     audio_service = AudioService()
 
     hero_number = 2
+    weapon_number = 2
 
     draw_actors_action = DrawActorsAction(output_service)
     move_actors_action = MoveActorsAction()
     control_actors_action = ControlActorsAction(input_service)
     change_color = ChangeColor(input_service, hero_number)
+    weapon = Weapon(input_service, hero_number)
 
     # TODO: Create additional actions here and add them to the script
 
     script["input"] = [control_actors_action, change_color]
     script["update"] = []
-    script["output"] = [draw_actors_action, move_actors_action]
+    script["output"] = [draw_actors_action, move_actors_action, weapon]
 
 
 

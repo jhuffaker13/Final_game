@@ -137,3 +137,6 @@ class Actor:
     def has_image(self):
         return self._image != ""
 
+    def has_weapon(self):
+        return self._weapon != ""
+
