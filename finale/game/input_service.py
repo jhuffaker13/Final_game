@@ -47,16 +47,16 @@ class InputService:
         return direction
 
     def is_left_pressed(self):
-        return raylibpy.is_key_down(raylibpy.KEY_LEFT)
+        return raylibpy.is_key_down(raylibpy.KEY_LEFT) or raylibpy.is_key_down(raylibpy.KEY_A)
 
     def is_right_pressed(self):
-        return raylibpy.is_key_down(raylibpy.KEY_RIGHT)
+        return raylibpy.is_key_down(raylibpy.KEY_RIGHT)  or raylibpy.is_key_down(raylibpy.KEY_D)
 
     def is_up_pressed(self):
-        return raylibpy.is_key_down(raylibpy.KEY_UP)
+        return raylibpy.is_key_down(raylibpy.KEY_UP) or raylibpy.is_key_down(raylibpy.KEY_W)
 
     def is_down_pressed(self):
-        return raylibpy.is_key_down(raylibpy.KEY_DOWN)
+        return raylibpy.is_key_down(raylibpy.KEY_DOWN) or raylibpy.is_key_down(raylibpy.KEY_S)
 
     def is_space_pressed(self):
         return raylibpy.is_key_pressed(raylibpy.KEY_SPACE)

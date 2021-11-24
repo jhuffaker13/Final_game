@@ -12,8 +12,10 @@ class Weapon():
         Args:
             input_service (InputService): An instance of InputService.
         """
+        
         self._input_service = input_service
         self.hero_number = hero_number
+        
         self.i = 0
         self.laserlist = []
         self.hero = Hero()
@@ -35,11 +37,13 @@ class Weapon():
             hero_x = cast["hero"][0].get_position().get_x()
             hero_y = cast["hero"][0].get_position().get_y()
             position = Point(hero_x + 10, hero_y)
+            laser.set_height(constants.HERO_HEIGHT)
+            laser.set_width(constants.HERO_WIDTH)
             laser.set_position(position)
             laser.set_velocity(Point(5, 0))
             self.laserlist.append(laser)
             cast["laser"] = self.laserlist
-            self.i += 1
+            #self.i += 1
         
             lasers = cast["laser"]
         

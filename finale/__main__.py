@@ -15,10 +15,10 @@ from game.weapon import Weapon
 # TODO: Add imports similar to the following when you create these classes
 from game.hero import Hero
 from game.change_color import ChangeColor
-# from game.ball import Ball
+from game.enemy import Enemy
 # from game.paddle import Paddle
 from game.control_actors_action import ControlActorsAction
-# from game.handle_collisions_action import HandleCollisionsAction
+from game.handlecollisionsaction import HandleCollisionsAction
 from game.handleoffscreenaction import HandleOffScreenAction
 from game.move_actors_action import MoveActorsAction
 
@@ -35,10 +35,27 @@ def main():
     position = Point(600, 300)
     hero.set_position(position)
     hero.set_velocity(Point(constants.HERO_DX, constants.HERO_DY))
+    health_bar = Actor()
+    health_bar.set_text(f"Health: {hero.get_health()}")
+    health_bar.set_position(Point(1, 0))
+    cast["health_bar"] = [health_bar]
     herolist.append(hero)
     cast["hero"] = herolist
+
+    
+    cast["enemies"] = []
+    enemies = []
+    for i in range (5):
+        enemy = Enemy()
+        position = Point(1550, 1100-(i*200))
+        enemy.set_position(position)
+        enemies.append(enemy)
+    cast["enemies"] = enemies
     # TODO: Create bricks here and add them to the list
     cast["laser"] = []
+
+    
+
     cast["balls"] = []
     # TODO: Create a ball here and add it to the list
 
@@ -63,11 +80,12 @@ def main():
     change_color = ChangeColor(input_service, hero_number)
     weapon = Weapon(input_service, hero_number)
     handleoffscreenaction = HandleOffScreenAction(cast)
+    handlecollisionsaction = HandleCollisionsAction(physics_service, audio_service)
 
     # TODO: Create additional actions here and add them to the script
 
     script["input"] = [control_actors_action, change_color]
-    script["update"] = [handleoffscreenaction]
+    script["update"] = [handleoffscreenaction, handlecollisionsaction]
     script["output"] = [draw_actors_action, move_actors_action, weapon]
 
 

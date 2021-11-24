@@ -12,6 +12,8 @@ HERO_ONE = os.path.join(os.getcwd(), "./finale/assets/brick-3.png")
 HERO_TWO = os.path.join(os.getcwd(), "./finale/assets/brick-4.png")
 HERO_THREE = os.path.join(os.getcwd(), "./finale/assets/brick-2.png")
 
+ENEMY = os.path.join(os.getcwd(), "./finale/assets/brick-1.png")
+
 IMAGE_PADDLE = os.path.join(os.getcwd(), "./batter/assets/bat.png")
 IMAGE_BALL = os.path.join(os.getcwd(), "./finale/assets/ball.png")
 
