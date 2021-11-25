@@ -37,7 +37,9 @@ class HandleCollisionsAction(Action):
             for laser in lasers:
                 if self.physics_service.is_collision(enemy, laser):
                     lasers.remove(laser)
-                    enemies.remove(enemy)
+                    enemy.set_health(enemy.get_health() - 20)
+                    if enemy.get_health() < 1:
+                        enemies.remove(enemy)
                     print("Hit!")
 
         """ball = cast["balls"][0]

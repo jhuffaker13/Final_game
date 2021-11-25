@@ -10,7 +10,7 @@ class Enemy(Actor):
         self.set_height(constants.HERO_HEIGHT)
         self.set_image(constants.ENEMY)
         self.weapon = 1
-        self.health = 10
+        self.health = 100
         
 
     def get_weapon(self):
