@@ -16,6 +16,7 @@ from game.weapon import Weapon
 from game.hero import Hero
 from game.change_color import ChangeColor
 from game.enemy import Enemy
+from game.random_movement import RandomMovements
 # from game.paddle import Paddle
 from game.control_actors_action import ControlActorsAction
 from game.handlecollisionsaction import HandleCollisionsAction
@@ -47,7 +48,7 @@ def main():
     enemies = []
     for i in range (5):
         enemy = Enemy()
-        position = Point(1550, 1100-(i*200))
+        position = Point(1500, 1100-(i*200))
         enemy.set_position(position)
         enemies.append(enemy)
     cast["enemies"] = enemies
@@ -81,11 +82,12 @@ def main():
     weapon = Weapon(input_service, hero_number)
     handleoffscreenaction = HandleOffScreenAction(cast)
     handlecollisionsaction = HandleCollisionsAction(physics_service, audio_service)
+    randommovements = RandomMovements()
 
     # TODO: Create additional actions here and add them to the script
 
     script["input"] = [control_actors_action, change_color]
-    script["update"] = [handleoffscreenaction, handlecollisionsaction]
+    script["update"] = [handleoffscreenaction, handlecollisionsaction, randommovements]
     script["output"] = [draw_actors_action, move_actors_action, weapon]
 
 

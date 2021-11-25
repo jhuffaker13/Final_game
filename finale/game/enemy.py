@@ -1,7 +1,10 @@
 import raylibpy
+from game.point import Point
 from game.control_actors_action import ControlActorsAction
 from game.actor import Actor
 from game import constants
+from game.input_service import InputService
+import random
 
 class Enemy(Actor):
     def __init__(self):
@@ -11,6 +14,7 @@ class Enemy(Actor):
         self.set_image(constants.ENEMY)
         self.weapon = 1
         self.health = 100
+        self.input_service = InputService
         
 
     def get_weapon(self):
@@ -25,6 +29,9 @@ class Enemy(Actor):
     def set_health(self, health):
         self.health = health
     
+    
+            
+
 
     
 
