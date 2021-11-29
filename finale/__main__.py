@@ -4,6 +4,7 @@ import random
 from game import constants
 from game.director import Director
 from game.actor import Actor
+from game.weaponactor import WeaponActor
 from game.point import Point
 from game.draw_actors_action import DrawActorsAction
 from game.input_service import InputService
@@ -11,6 +12,8 @@ from game.output_service import OutputService
 from game.physics_service import PhysicsService
 from game.audio_service import AudioService
 from game.weapon import Weapon
+from game.heroweapon import HeroWeapon
+from game.enemyweapon import EnemyWeapon
 
 # TODO: Add imports similar to the following when you create these classes
 from game.hero import Hero
@@ -48,7 +51,7 @@ def main():
     enemies = []
     for i in range (5):
         enemy = Enemy()
-        position = Point(1500, 1100-(i*200))
+        position = Point(1400, 1100-(i*200))
         enemy.set_position(position)
         enemies.append(enemy)
     cast["enemies"] = enemies
@@ -83,17 +86,19 @@ def main():
     handleoffscreenaction = HandleOffScreenAction(cast)
     handlecollisionsaction = HandleCollisionsAction(physics_service, audio_service)
     randommovements = RandomMovements()
+    heroweapon = HeroWeapon(input_service)
+    enemyweapon = EnemyWeapon()
 
     # TODO: Create additional actions here and add them to the script
 
-    script["input"] = [control_actors_action, change_color]
+    script["input"] = [control_actors_action, change_color, heroweapon]
     script["update"] = [handleoffscreenaction, handlecollisionsaction, randommovements]
-    script["output"] = [draw_actors_action, move_actors_action, weapon]
+    script["output"] = [draw_actors_action, move_actors_action, enemyweapon]
 
 
 
     # Start the game
-    output_service.open_window("Batter");
+    output_service.open_window("Finale");
     #audio_service.start_audio()
     #audio_service.play_sound(constants.SOUND_START)
     

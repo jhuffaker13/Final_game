@@ -1,5 +1,6 @@
 import random
 from game.point import Point
+from game import constants
 
 class RandomMovements:
     def __init__(self):
@@ -19,21 +20,21 @@ class RandomMovements:
             i = 0
             while i < random_move_number:
                 if random_direction == 1:
-                    enemy.set_velocity(Point(3, 0))
+                    enemy.set_velocity(Point(constants.ENEMY_PD, constants.ENEMY_Z))
                 elif random_direction == 2:
-                    enemy.set_velocity(Point(-3, 0))
+                    enemy.set_velocity(Point(constants.ENEMY_ND, constants.ENEMY_Z))
                 elif random_direction == 3:
-                    enemy.set_velocity(Point(0, 3))
+                    enemy.set_velocity(Point(constants.ENEMY_Z, constants.ENEMY_PD))
                 elif random_direction == 4:
-                    enemy.set_velocity(Point(0, -3))
+                    enemy.set_velocity(Point(constants.ENEMY_Z, constants.ENEMY_ND))
                 elif random_direction == 4:
-                    enemy.set_velocity(Point(0, -3))
+                    enemy.set_velocity(Point(constants.ENEMY_Z, constants.ENEMY_ND))
                 elif random_direction == 5:
-                    enemy.set_velocity(Point(3, -3))
+                    enemy.set_velocity(Point(constants.ENEMY_PD, constants.ENEMY_ND))
                 elif random_direction == 6:
-                    enemy.set_velocity(Point(-3, -3))
+                    enemy.set_velocity(Point(constants.ENEMY_ND, constants.ENEMY_ND))
                 elif random_direction == 7:
-                    enemy.set_velocity(Point(3, 3))
+                    enemy.set_velocity(Point(constants.ENEMY_PD, constants.ENEMY_PD))
                 elif random_direction == 8:
-                    enemy.set_velocity(Point(-3, 3))
+                    enemy.set_velocity(Point(constants.ENEMY_ND, constants.ENEMY_PD))
                 i += 1

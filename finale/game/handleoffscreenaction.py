@@ -30,9 +30,11 @@ class HandleOffScreenAction(Action):
             cast (dict): The game actors {key: tag, value: list}.
         """
         #laser = cast["balls"][0]
-        lasers = cast["laser"]
-        enemies = cast["enemies"]
         try:
+            lasers = cast["laser"]
+            enemies = cast["enemies"]
+            enemylasers = cast["enemyweapon"]
+            
             for group in cast.values():
                 #for laser in lasers:
                 for i in range(len(lasers)):
@@ -40,6 +42,10 @@ class HandleOffScreenAction(Action):
                     if cast["laser"][i].get_position().get_x() > constants.MAX_X - 10:
                         lasers.remove(laser)
                         break
+
+                
+                        
+
                 for enemy in enemies:
                     if enemy.get_position().get_y() > constants.MAX_Y - 50:
                         change_direction = random.randint(1,3)
@@ -76,8 +82,16 @@ class HandleOffScreenAction(Action):
                             enemy.set_velocity(Point(3, 3))
                         elif change_direction == 3:
                             enemy.set_velocity(Point(3, -3))
-                        
-                       
+
+                for i in range(len(enemylasers)):
+                    enemylaser = cast["enemyweapon"][i]
+                    if cast["enemyweapon"][i].get_position().get_x() < 10:
+                        enemylasers.remove(enemylaser)
+                        pass
+                    
+        except KeyError:
+            pass
+
         except IndexError:
             pass
                     

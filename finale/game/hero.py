@@ -16,10 +16,11 @@ class Hero(Actor):
         self.input_service = InputService
         self.health = 100
         
+    
 
     def change_hero_color(self):
         self.change_color.execute()
-        print(self.weapon)
+        #print(self.weapon)
 
     def get_weapon(self):
         return self.weapon
