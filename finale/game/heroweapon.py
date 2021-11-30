@@ -44,7 +44,7 @@ class HeroWeapon():
                     laser.set_velocity(Point(constants.HERO_LASER, 0))
                     self.laserlist.append(laser)
                     cast["laser"] = self.laserlist
-                    print(f"This is x {self.charge}")
+                    #print(f"This is x {self.charge}")
                     self.charge = 0
 
         elif cast["hero"][0].get_weapon() == 2 or cast["hero"][0].get_weapon() == 3:
@@ -76,7 +76,7 @@ class HeroWeapon():
                 cast["laser"] = self.laserlist
                 #self.i += 1"""
 
-                if cast["hero"][0].get_weapon() == 1:
+                """if cast["hero"][0].get_weapon() == 1:
                     laser = Actor()
                     laser.set_image(constants.HERO_ONE_LASER)
                     laser.set_damage(35)
@@ -88,7 +88,7 @@ class HeroWeapon():
                     laser.set_position(position)
                     laser.set_velocity(Point(constants.HERO_LASER, 0))
                     self.laserlist.append(laser)
-                    cast["laser"] = self.laserlist
+                    cast["laser"] = self.laserlist"""
 
                 if cast["hero"][0].get_weapon() == 2:
                     laser = Actor()

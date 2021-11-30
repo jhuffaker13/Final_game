@@ -1,4 +1,6 @@
 import os
+
+
 os.environ['RAYLIB_BIN_PATH'] = '.'
 import random
 from game import constants
@@ -14,6 +16,7 @@ from game.audio_service import AudioService
 from game.weapon import Weapon
 from game.heroweapon import HeroWeapon
 from game.enemyweapon import EnemyWeapon
+from game.createenemy import CreateEnemy
 
 # TODO: Add imports similar to the following when you create these classes
 from game.hero import Hero
@@ -96,16 +99,17 @@ def main():
     control_actors_action = ControlActorsAction(input_service)
     change_color = ChangeColor(input_service, hero_number)
     weapon = Weapon(input_service, hero_number)
-    handleoffscreenaction = HandleOffScreenAction(cast)
+    handleoffscreenaction = HandleOffScreenAction()
     handlecollisionsaction = HandleCollisionsAction(physics_service, audio_service)
     randommovements = RandomMovements()
     heroweapon = HeroWeapon(input_service)
     enemyweapon = EnemyWeapon()
+    createenemy = CreateEnemy()
 
     # TODO: Create additional actions here and add them to the script
 
     script["input"] = [control_actors_action, change_color, heroweapon]
-    script["update"] = [handleoffscreenaction, handlecollisionsaction, randommovements]
+    script["update"] = [handleoffscreenaction, handlecollisionsaction, randommovements, createenemy]
     script["output"] = [draw_actors_action, move_actors_action, enemyweapon]
 
 

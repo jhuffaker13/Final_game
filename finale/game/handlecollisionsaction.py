@@ -43,8 +43,8 @@ class HandleCollisionsAction(Action):
                         enemy.set_health(enemy.get_health() - laser.get_damage())
                         if enemy.get_health() < 1:
                             enemies.remove(enemy)
-                        print("Hit!")
-                        print(enemy.get_health())
+                        #print("Hit!")
+                        #print(enemy.get_health())
 
             for enemylaser in enemylasers:
                 if self.physics_service.is_collision(enemylaser, hero):

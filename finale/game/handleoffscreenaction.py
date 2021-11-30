@@ -15,13 +15,13 @@ class HandleOffScreenAction(Action):
         _input_service (InputService): An instance of InputService.
     """
 
-    def __init__(self, input_service):
+    def __init__(self):
         """The class constructor.
         
         Args:
             input_service (InputService): An instance of InputService.
         """
-        self._input_service = input_service
+        pass
 
     def execute(self, cast):
         """Executes the action using the given actors.

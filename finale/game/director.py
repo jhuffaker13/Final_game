@@ -38,6 +38,9 @@ class Director:
             if len(self._cast["hero"]) == 0:
             #     # Game over
                 self._keep_playing = False
+            
+            if len(self._cast["enemies"]) == 0:
+                self._keep_playing = False
 
             if raylibpy.window_should_close():
                 self._keep_playing = False
