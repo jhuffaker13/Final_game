@@ -61,6 +61,12 @@ class InputService:
     def is_space_pressed(self):
         return raylibpy.is_key_pressed(raylibpy.KEY_SPACE)
 
+    def is_space_held(self):
+        return raylibpy.is_key_down(raylibpy.KEY_SPACE)
+
+    def is_space_released(self):
+        return raylibpy.is_key_released(raylibpy.KEY_SPACE)
+
     def is_f_pressed(self):
         return raylibpy.is_key_pressed(raylibpy.KEY_F)
 

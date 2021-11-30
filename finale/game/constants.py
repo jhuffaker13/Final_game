@@ -13,6 +13,8 @@ HERO_TWO = os.path.join(os.getcwd(), "./finale/assets/pixil-frame-2.png")
 HERO_THREE = os.path.join(os.getcwd(), "./finale/assets/pixil-frame-3.png")
 
 HERO_ONE_LASER = os.path.join(os.getcwd(), "./finale/assets/bluelaser.png")
+HERO_ONE_MEDIUM_LASER = os.path.join(os.getcwd(), "./finale/assets/mediumbluelaser.png")
+HERO_ONE_LARGE_LASER = os.path.join(os.getcwd(), "./finale/assets/largebluelaser.png")
 HERO_TWO_LASER = os.path.join(os.getcwd(), "./finale/assets/yellowlaser.png")
 HERO_THREE_UP_LASER = os.path.join(os.getcwd(), "./finale/assets/upred.png")
 HERO_THREE_LASER = os.path.join(os.getcwd(), "./finale/assets/redlaser.png")
