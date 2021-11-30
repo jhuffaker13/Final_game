@@ -42,6 +42,12 @@ class HandleOffScreenAction(Action):
                     if cast["laser"][i].get_position().get_x() > constants.MAX_X - 10:
                         lasers.remove(laser)
                         break
+                    if cast["laser"][i].get_position().get_y() > constants.MAX_Y - 10:
+                        lasers.remove(laser)
+                        break
+                    if cast["laser"][i].get_position().get_y() < 10:
+                        lasers.remove(laser)
+                        break
 
                 
                         

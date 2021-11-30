@@ -31,9 +31,21 @@ def main():
     # create the cast {key: tag, value: list}
     cast = {}
 
+    #This displays a box where the hero is. Simply for testing certain things
+    """cast["box"] = []
+    boxlist = []
+    box = Actor()
+    position = Point(600, 300)
+    box.set_velocity(Point(0,0))
+    box.set_width(constants.HERO_WIDTH)
+    box.set_height(constants.HERO_HEIGHT)
+    box.set_position(position)
+    boxlist.append(box)
+    cast["box"] = boxlist"""
+
     cast["hero"] = []
     herolist = []
-    hero = Hero()
+    hero = Hero() 
     hero.set_image(constants.HERO_ONE)
     hero.set_weapon(1)
     position = Point(600, 300)
@@ -49,10 +61,11 @@ def main():
     
     cast["enemies"] = []
     enemies = []
-    for i in range (5):
+    for i in range (8):
         enemy = Enemy()
-        position = Point(1400, 1100-(i*200))
+        position = Point(1300, constants.MAX_Y-(i*100)-100)
         enemy.set_position(position)
+        enemy.set_velocity(Point(constants.ENEMY_ND, constants.ENEMY_Z))
         enemies.append(enemy)
     cast["enemies"] = enemies
     # TODO: Create bricks here and add them to the list

@@ -30,6 +30,7 @@ class Actor:
         self._width = 0
         self._height = 0
         self._image = ""
+        self._damage = 0
         """self._color = raylibpy.RED
 
     def set_color(self, color):
@@ -37,6 +38,12 @@ class Actor:
 
     def get_color(self):
         return self._color"""
+
+    def get_damage(self):
+        return self._damage
+
+    def set_damage(self, damage):
+        self._damage = damage
 
     def get_width(self):
         return self._width
