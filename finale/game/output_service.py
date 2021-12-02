@@ -85,7 +85,7 @@ class OutputService:
             text = actor.get_text()
             self.draw_text(x, y, text, False)
         elif width > 0 and height > 0:
-            self.draw_box(x, y, width, height, raylibpy.RED)
+            self.draw_box(x, y, width, height, raylibpy.SKYBLUE)
         
     def draw_actors(self, actors):
         """Renders the given list of actors on the screen.

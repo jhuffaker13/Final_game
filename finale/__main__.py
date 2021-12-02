@@ -6,7 +6,6 @@ import random
 from game import constants
 from game.director import Director
 from game.actor import Actor
-from game.weaponactor import WeaponActor
 from game.point import Point
 from game.draw_actors_action import DrawActorsAction
 from game.input_service import InputService
@@ -17,17 +16,15 @@ from game.weapon import Weapon
 from game.heroweapon import HeroWeapon
 from game.enemyweapon import EnemyWeapon
 from game.createenemy import CreateEnemy
-
-# TODO: Add imports similar to the following when you create these classes
 from game.hero import Hero
 from game.change_color import ChangeColor
 from game.enemy import Enemy
 from game.random_movement import RandomMovements
-# from game.paddle import Paddle
 from game.control_actors_action import ControlActorsAction
 from game.handlecollisionsaction import HandleCollisionsAction
 from game.handleoffscreenaction import HandleOffScreenAction
 from game.move_actors_action import MoveActorsAction
+from game.background import Background
 
 def main():
 
@@ -45,6 +42,20 @@ def main():
     box.set_position(position)
     boxlist.append(box)
     cast["box"] = boxlist"""
+
+    #Background test
+    """cast["background"] = []
+    backgroundlist = []
+    sky = Background()
+    sky.set_width(constants.MAX_X)
+    sky.set_height(constants.MAX_Y)
+    sky.set_image(constants.NIGHT_SKY)
+    position = Point(0, 0)
+    sky.set_position(position)
+    sky.set_velocity(Point(0,0))
+
+    backgroundlist.append(sky)
+    cast["background"] = backgroundlist"""  
 
     cast["hero"] = []
     herolist = []
@@ -68,19 +79,14 @@ def main():
         enemy = Enemy()
         position = Point(1300, constants.MAX_Y-(i*100)-100)
         enemy.set_position(position)
-        enemy.set_velocity(Point(constants.ENEMY_ND, constants.ENEMY_Z))
         enemies.append(enemy)
     cast["enemies"] = enemies
-    # TODO: Create bricks here and add them to the list
+
+
+    
     cast["laser"] = []
 
     
-
-    cast["balls"] = []
-    # TODO: Create a ball here and add it to the list
-
-    cast["paddle"] = []
-    # TODO: Create a paddle here and add it to the list
 
 
     # Create the script {key: tag, value: list}
@@ -105,8 +111,9 @@ def main():
     heroweapon = HeroWeapon(input_service)
     enemyweapon = EnemyWeapon()
     createenemy = CreateEnemy()
+    background = Background()
 
-    # TODO: Create additional actions here and add them to the script
+    
 
     script["input"] = [control_actors_action, change_color, heroweapon]
     script["update"] = [handleoffscreenaction, handlecollisionsaction, randommovements, createenemy]

@@ -1,4 +1,3 @@
-from game.weaponactor import WeaponActor
 from game.actor import Actor
 from game import constants
 from game.point import Point
@@ -9,6 +8,7 @@ class HeroWeapon():
         self._input_service = input_service
         self.laserlist = []
         self.charge = 0
+        #self.distance = constants.MAX_X
     
     def execute(self, cast):
         if cast["hero"][0].get_weapon() == 1:
@@ -93,7 +93,7 @@ class HeroWeapon():
                 if cast["hero"][0].get_weapon() == 2:
                     laser = Actor()
                     laser.set_image(constants.HERO_TWO_LASER)
-                    laser.set_damage(15)
+                    laser.set_damage(35)
                     hero_x = cast["hero"][0].get_position().get_x()
                     hero_y = cast["hero"][0].get_position().get_y()
                     position = Point(hero_x + 10, hero_y + 20)
@@ -101,12 +101,13 @@ class HeroWeapon():
                     laser.set_width(constants.LASER_WIDTH)
                     laser.set_position(position)
                     laser.set_velocity(Point(constants.HERO_LASER, 0))
+                    laser.set_distance(hero_x + constants.YELLOW_MAX)
                     self.laserlist.append(laser)
                     cast["laser"] = self.laserlist
                     #Second laser starts here
                     laser = Actor()
                     laser.set_image(constants.HERO_TWO_LASER)
-                    laser.set_damage(15)
+                    laser.set_damage(35)
                     hero_x = cast["hero"][0].get_position().get_x()
                     hero_y = cast["hero"][0].get_position().get_y()
                     position = Point(hero_x + 10, hero_y + 44)
@@ -114,6 +115,7 @@ class HeroWeapon():
                     laser.set_width(constants.LASER_WIDTH)
                     laser.set_position(position)
                     laser.set_velocity(Point(constants.HERO_LASER, 0))
+                    laser.set_distance(hero_x + constants.YELLOW_MAX)
                     self.laserlist.append(laser)
                     cast["laser"] = self.laserlist
 
@@ -140,7 +142,7 @@ class HeroWeapon():
                     laser.set_height(constants.LASER_HEIGHT)
                     laser.set_width(constants.LASER_WIDTH)
                     laser.set_position(position)
-                    laser.set_velocity(Point(constants.HERO_LASER, constants.HERO_LASER/2))
+                    laser.set_velocity(Point(constants.HERO_LASER, constants.HERO_LASER/5))
                     self.laserlist.append(laser)
                     cast["laser"] = self.laserlist
                     #Second diagonal laser starts here
@@ -153,15 +155,17 @@ class HeroWeapon():
                     laser.set_height(constants.LASER_HEIGHT)
                     laser.set_width(constants.LASER_WIDTH)
                     laser.set_position(position)
-                    laser.set_velocity(Point(constants.HERO_LASER, constants.HERO_LASER * -1/2))
+                    laser.set_velocity(Point(constants.HERO_LASER, constants.HERO_LASER * -1/5))
                     self.laserlist.append(laser)
                     cast["laser"] = self.laserlist
 
                 lasers = cast["laser"]
             
-                for group in cast.values():
+
+                #Placed this cose elsewhere, was not working while in this area. Leaving it here just in case
+                """for group in cast.values():
                     #for laser in lasers:
                     while len(lasers) > 6:
                         laser = cast["laser"][0]
                         
-                        lasers.remove(laser)
+                        lasers.remove(laser)"""

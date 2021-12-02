@@ -31,6 +31,8 @@ class Actor:
         self._height = 0
         self._image = ""
         self._damage = 0
+        self._distance = constants.MAX_X
+        self._charge = 0
         """self._color = raylibpy.RED
 
     def set_color(self, color):
@@ -147,3 +149,14 @@ class Actor:
     def has_weapon(self):
         return self._weapon != ""
 
+    def get_distance(self):
+        return self._distance
+
+    def set_distance(self, distance):
+        self._distance = distance
+
+    def get_charge(self):
+        return self._charge
+
+    def set_charge(self, charge):
+        self._charge = charge

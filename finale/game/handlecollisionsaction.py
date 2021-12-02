@@ -36,15 +36,19 @@ class HandleCollisionsAction(Action):
             enemies = cast["enemies"]
             lasers = cast["laser"]
             enemylasers = cast["enemyweapon"]
-            for enemy in enemies:
-                for laser in lasers:
+            for laser in lasers:
+                for enemy in enemies:
                     if self.physics_service.is_collision(enemy, laser):
                         lasers.remove(laser)
                         enemy.set_health(enemy.get_health() - laser.get_damage())
                         if enemy.get_health() < 1:
                             enemies.remove(enemy)
-                        #print("Hit!")
-                        #print(enemy.get_health())
+
+                if hero.get_weapon() == 2:
+                    for enemylaser in enemylasers:
+                        if self.physics_service.is_collision(enemylaser, laser):
+                            enemylasers.remove(enemylaser)
+                            lasers.remove(laser)
 
             for enemylaser in enemylasers:
                 if self.physics_service.is_collision(enemylaser, hero):
@@ -59,6 +63,8 @@ class HandleCollisionsAction(Action):
                     health_bar.set_position(Point(1, 0))
                     cast["health_bar"] = [health_bar]
         except KeyError:
+            pass
+        except ValueError:
             pass
 
         """ball = cast["balls"][0]

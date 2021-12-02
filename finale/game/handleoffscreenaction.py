@@ -48,6 +48,9 @@ class HandleOffScreenAction(Action):
                     if cast["laser"][i].get_position().get_y() < 10:
                         lasers.remove(laser)
                         break
+                    if cast["laser"][i].get_position().get_x() > cast["laser"][i].get_distance():
+                        lasers.remove(laser)
+                        break
 
                 
                         
@@ -94,7 +97,12 @@ class HandleOffScreenAction(Action):
                     if cast["enemyweapon"][i].get_position().get_x() < 10:
                         enemylasers.remove(enemylaser)
                         pass
-                    
+                
+                while len(lasers) > 6:
+                        laser = cast["laser"][0]
+                        
+                        lasers.remove(laser)
+
         except KeyError:
             pass
 

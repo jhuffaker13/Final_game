@@ -12,6 +12,7 @@ class Enemy(Actor):
         self.set_width(constants.HERO_WIDTH)
         self.set_height(constants.HERO_HEIGHT)
         self.set_image(constants.ENEMY)
+        self.set_velocity(Point(constants.ENEMY_ND, constants.ENEMY_Z))
         self.weapon = 1
         self.health = 100
         self.input_service = InputService
