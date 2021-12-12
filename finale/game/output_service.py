@@ -1,6 +1,7 @@
 import sys
 from game import constants
 import raylibpy
+import random
 
 class OutputService:
     """Outputs the game state. The responsibility of the class of objects is to draw the game state on the terminal. 
@@ -85,7 +86,8 @@ class OutputService:
             text = actor.get_text()
             self.draw_text(x, y, text, False)
         elif width > 0 and height > 0:
-            self.draw_box(x, y, width, height, raylibpy.SKYBLUE)
+            color = actor.get_color()
+            self.draw_box(x, y, width, height, color)
         
     def draw_actors(self, actors):
         """Renders the given list of actors on the screen.

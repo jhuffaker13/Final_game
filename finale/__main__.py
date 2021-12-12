@@ -2,6 +2,7 @@ import os
 
 
 os.environ['RAYLIB_BIN_PATH'] = '.'
+import raylibpy
 import random
 from game import constants
 from game.director import Director
@@ -56,6 +57,29 @@ def main():
 
     backgroundlist.append(sky)
     cast["background"] = backgroundlist"""  
+
+    cast["star"] = []
+    starlist = []
+    for i in range(400):
+        star = Actor()
+        star.set_height(2)
+        star.set_width(2)
+        random_y = random.randint(1, constants.MAX_Y)
+        position = Point(i*4, random_y)
+        star.set_position(position)
+        star.set_velocity(Point(-5, 0))
+        random_color_number = random.randint(1,15)
+        if random_color_number < 9:
+            random_color = raylibpy.WHITE
+        elif random_color_number == 9 or random_color_number == 10:
+            random_color = raylibpy.SKYBLUE
+        elif random_color_number > 12:
+            random_color = raylibpy.YELLOW
+        else:
+            random_color = raylibpy.RED
+        star.set_color(random_color)
+        starlist.append(star)
+    cast["star"] = starlist
 
     cast["hero"] = []
     herolist = []
